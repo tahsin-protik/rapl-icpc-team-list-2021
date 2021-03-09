@@ -11,7 +11,8 @@ def getSheet():
 
 def updateSheet():
     sheetId="11clHWJ2VwoKArVuNb3ZCbjNqIB1aDRlQjDA2nJvOStg"
-    sheetRange="Sheet1!C1:O100"
+    sheetRange="Sheet1!B1:O100"
+    spaceAfter=100
     result=getSheet()
     result=result['values']
     manush=len(result)
@@ -22,6 +23,9 @@ def updateSheet():
             if (result[0][j]=='Team Name' or result[0][j]=='Email Address'):
                 tmp.append(result[i][j])
         ret.append(tmp)
+        if i!=0 and i%spaceAfter==0:
+            ret.append(['','','',''])
+            ret.append(['','','',''])
     body={
         "values": ret
     }
